@@ -1,0 +1,17 @@
+version: "3"
+services:
+  test_docker_dev_01:
+    container_name: postgres_dev_test_01
+    image: postgres:latest
+    ports:
+      - "5430:5432"
+    volumes:
+      - /data/postgres:/data/postgres
+    env_file:
+      - docker.env
+    networks:
+      - test_docker_dev_01
+
+networks:
+  test_docker_dev_01:
+    driver: bridge
